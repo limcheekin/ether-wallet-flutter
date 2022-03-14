@@ -1,4 +1,4 @@
-import 'package:etherwallet/components/wallet/balance.dart';
+import '../../components/wallet/balance.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -19,6 +19,7 @@ class WalletMainPage extends HookWidget {
     final address = store.state.address;
     final network = store.state.network;
 
+    // ignore: body_might_complete_normally_nullable
     useEffect(() {
       store.initialise();
     }, []);

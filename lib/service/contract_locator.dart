@@ -1,7 +1,7 @@
-import 'package:etherwallet/app_config.dart';
-import 'package:etherwallet/model/network_type.dart';
-import 'package:etherwallet/service/contract_service.dart';
-import 'package:etherwallet/utils/contract_parser.dart';
+import '../../app_config.dart';
+import '../../model/network_type.dart';
+import '../../service/contract_service.dart';
+import '../../utils/contract_parser.dart';
 import 'package:web3dart/web3dart.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:http/http.dart';
@@ -32,9 +32,10 @@ class ContractLocator {
     final client = Web3Client(networkConfig.web3HttpUrl, Client(),
         socketConnector: wsAddress != null
             ? () {
-                if (kIsWeb)
+                if (kIsWeb) {
                   return WebSocketChannel.connect(Uri.parse(wsAddress))
                       .cast<String>();
+                }
 
                 return IOWebSocketChannel.connect(wsAddress).cast<String>();
               }

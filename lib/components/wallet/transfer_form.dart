@@ -1,7 +1,7 @@
-import 'package:etherwallet/components/form/paper_form.dart';
-import 'package:etherwallet/components/form/paper_input.dart';
-import 'package:etherwallet/components/form/paper_validation_summary.dart';
-import 'package:etherwallet/context/transfer/wallet_transfer_provider.dart';
+import '../../components/form/paper_form.dart';
+import '../../components/form/paper_input.dart';
+import '../../components/form/paper_validation_summary.dart';
+import '../../context/transfer/wallet_transfer_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -21,9 +21,11 @@ class TransferForm extends HookWidget {
     final amountController = useTextEditingController();
     final transferStore = useWalletTransfer(context);
 
+    // ignore: body_might_complete_normally_nullable
     useEffect(() {
-      if (address != null)
+      if (address != null) {
         toController.value = TextEditingValue(text: address!);
+      }
     }, [address]);
 
     return Center(

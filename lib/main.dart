@@ -1,5 +1,5 @@
-import 'package:etherwallet/router.dart';
-import 'package:etherwallet/services_provider.dart';
+import 'router.dart';
+import 'services_provider.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ Future<void> main() async {
 }
 
 class MainApp extends StatelessWidget {
-  MainApp(this.stores, {Key? key}) : super(key: key);
+  const MainApp(this.stores, {Key? key}) : super(key: key);
 
   final List<SingleChildWidget> stores;
 

@@ -1,4 +1,4 @@
-import 'package:etherwallet/model/wallet_setup.dart';
+import '../../model/wallet_setup.dart';
 
 abstract class WalletSetupAction {}
 
@@ -58,11 +58,12 @@ WalletSetup reducer(WalletSetup state, WalletSetupAction action) {
       ..errors.clear());
   }
 
-  if (action is WalletSetupAddError)
+  if (action is WalletSetupAddError) {
     return state.rebuild((b) => b
       ..loading = false
       ..errors.clear()
       ..errors.add(action.error));
+  }
 
   return state;
 }

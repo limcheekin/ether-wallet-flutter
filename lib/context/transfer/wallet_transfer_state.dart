@@ -1,4 +1,4 @@
-import 'package:etherwallet/model/wallet_transfer.dart';
+import '../../model/wallet_transfer.dart';
 
 abstract class WalletTransferAction {}
 

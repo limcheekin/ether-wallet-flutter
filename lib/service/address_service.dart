@@ -1,4 +1,6 @@
-import 'package:etherwallet/service/configuration_service.dart';
+import 'package:flutter/foundation.dart';
+
+import '../../service/configuration_service.dart';
 import 'package:bip39/bip39.dart' as bip39;
 import 'package:ed25519_hd_key/ed25519_hd_key.dart';
 import 'package:hex/hex.dart';
@@ -35,7 +37,7 @@ class AddressService implements IAddressService {
     final master = await ED25519_HD_KEY.getMasterKeyFromSeed(hex.decode(seed),
         masterSecret: 'Bitcoin seed');
     final privateKey = HEX.encode(master.key);
-    print('private: $privateKey');
+    debugPrint('private: $privateKey');
     return privateKey;
   }
 
@@ -44,7 +46,7 @@ class AddressService implements IAddressService {
     final private = EthPrivateKey.fromHex(privateKey);
 
     final address = await private.extractAddress();
-    print('address: $address');
+    debugPrint('address: $address');
     return address;
   }
 

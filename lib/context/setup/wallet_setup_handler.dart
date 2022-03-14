@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:etherwallet/model/wallet_setup.dart';
-import 'package:etherwallet/service/address_service.dart';
+import '../../model/wallet_setup.dart';
+import '../../service/address_service.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import 'wallet_setup_state.dart';
@@ -78,7 +78,7 @@ class WalletSetupHandler {
   List<String> _mnemonicWords(String mnemonic) {
     return mnemonic
         .split(' ')
-        .where((item) => item != null && item.trim().isNotEmpty)
+        .where((item) => item.trim().isNotEmpty)
         .map((item) => item.trim())
         .toList();
   }

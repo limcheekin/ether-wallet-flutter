@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
 import 'package:web3dart/web3dart.dart';
 
 typedef TransferEvent = void Function(
@@ -8,7 +9,7 @@ typedef TransferEvent = void Function(
 );
 
 abstract class IContractService {
-  Future<Credentials> getCredentials(String privateKey);
+  Credentials getCredentials(String privateKey);
   Future<String?> send(
       String privateKey, EthereumAddress receiver, BigInt amount,
       {TransferEvent? onTransfer, Function(Object exeception)? onError});
@@ -29,14 +30,14 @@ class ContractService implements IContractService {
   ContractFunction _sendFunction() => contract.function('transfer');
 
   @override
-  Future<Credentials> getCredentials(String privateKey) =>
-      client.credentialsFromPrivateKey(privateKey);
+  Credentials getCredentials(String privateKey) =>
+      EthPrivateKey.fromHex(privateKey);
 
   @override
   Future<String?> send(
       String privateKey, EthereumAddress receiver, BigInt amount,
       {TransferEvent? onTransfer, Function(Object exeception)? onError}) async {
-    final credentials = await getCredentials(privateKey);
+    final credentials = getCredentials(privateKey);
     final from = await credentials.extractAddress();
     final networkId = await client.getNetworkId();
 
@@ -60,7 +61,7 @@ class ContractService implements IContractService {
         ),
         chainId: networkId,
       );
-      print('transact started $transactionId');
+      debugPrint('transact started $transactionId');
       return transactionId;
     } catch (ex) {
       if (onError != null) {
@@ -109,9 +110,9 @@ class ContractService implements IContractService {
       final to = decoded[1] as EthereumAddress;
       final value = decoded[2] as BigInt;
 
-      print('$from}');
-      print('$to}');
-      print('$value}');
+      debugPrint('$from}');
+      debugPrint('$to}');
+      debugPrint('$value}');
 
       onTransfer(from, to, value);
     });

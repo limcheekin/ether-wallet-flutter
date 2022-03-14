@@ -1,6 +1,5 @@
-import 'package:etherwallet/model/network_type.dart';
-import 'package:etherwallet/utils/wallet_icons.dart';
-import 'package:flutter/cupertino.dart';
+import '../../model/network_type.dart';
+import '../../utils/wallet_icons.dart';
 import 'package:flutter/material.dart';
 
 class ChangeNetwork extends StatelessWidget {

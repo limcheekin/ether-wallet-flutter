@@ -1,8 +1,10 @@
-import 'package:etherwallet/model/network_type.dart';
-import 'package:etherwallet/model/wallet.dart';
-import 'package:etherwallet/service/address_service.dart';
-import 'package:etherwallet/service/configuration_service.dart';
-import 'package:etherwallet/service/contract_locator.dart';
+import 'package:flutter/foundation.dart';
+
+import '../../model/network_type.dart';
+import '../../model/wallet.dart';
+import '../../service/address_service.dart';
+import '../../service/configuration_service.dart';
+import '../../service/contract_locator.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:web3dart/web3dart.dart' as web3;
 
@@ -74,7 +76,7 @@ class WalletHandler {
         return;
       }
 
-      print('======= balance updated =======');
+      debugPrint('======= balance updated =======');
 
       await refreshBalance();
     });
@@ -102,6 +104,9 @@ class WalletHandler {
 
     final ethBalance = await contractService
         .getEthBalance(web3.EthereumAddress.fromHex(state.address!));
+
+    debugPrint(
+        'state.address ${state.address}\ntokenBalance $tokenBalance\nethBalance $ethBalance');
 
     _store.dispatch(BalanceUpdated(ethBalance.getInWei, tokenBalance));
   }

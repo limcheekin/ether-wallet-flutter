@@ -1,6 +1,6 @@
-import 'package:etherwallet/service/address_service.dart';
-import 'package:etherwallet/service/configuration_service.dart';
-import 'package:etherwallet/service/contract_locator.dart';
+import '../../service/address_service.dart';
+import '../../service/configuration_service.dart';
+import '../../service/contract_locator.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';

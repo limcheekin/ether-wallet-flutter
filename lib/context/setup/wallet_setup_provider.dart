@@ -1,7 +1,7 @@
-import 'package:etherwallet/context/setup/wallet_setup_handler.dart';
-import 'package:etherwallet/context/setup/wallet_setup_state.dart';
-import 'package:etherwallet/model/wallet_setup.dart';
-import 'package:etherwallet/service/address_service.dart';
+import '../../context/setup/wallet_setup_handler.dart';
+import '../../context/setup/wallet_setup_state.dart';
+import '../../model/wallet_setup.dart';
+import '../../service/address_service.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 

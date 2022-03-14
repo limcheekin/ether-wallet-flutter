@@ -11,10 +11,10 @@ class NetworkType extends EnumClass {
 
   static Serializer<NetworkType> get serializer => _$networkTypeSerializer;
 
-  static const NetworkType Local = _$Local;
-  static const NetworkType Ethereum = _$Ethereum;
-  static const NetworkType Matic = _$Matic;
-  static const NetworkType BSC = _$BSC;
+  static const NetworkType local = _$Local;
+  static const NetworkType ethereum = _$Ethereum;
+  static const NetworkType matic = _$Matic;
+  static const NetworkType bsc = _$BSC;
 
   static BuiltSet<NetworkType> get values => _$values;
 

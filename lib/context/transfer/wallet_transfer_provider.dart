@@ -1,8 +1,8 @@
-import 'package:etherwallet/context/transfer/wallet_transfer_handler.dart';
-import 'package:etherwallet/context/transfer/wallet_transfer_state.dart';
-import 'package:etherwallet/model/wallet_transfer.dart';
-import 'package:etherwallet/service/configuration_service.dart';
-import 'package:etherwallet/service/contract_locator.dart';
+import '../../context/transfer/wallet_transfer_handler.dart';
+import '../../context/transfer/wallet_transfer_state.dart';
+import '../../model/wallet_transfer.dart';
+import '../../service/configuration_service.dart';
+import '../../service/contract_locator.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 

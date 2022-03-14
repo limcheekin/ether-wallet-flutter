@@ -1,5 +1,5 @@
-import 'package:etherwallet/model/network_type.dart';
-import 'package:etherwallet/model/wallet.dart';
+import '../../model/network_type.dart';
+import '../../model/wallet.dart';
 
 abstract class WalletAction {}
 

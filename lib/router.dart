@@ -1,11 +1,11 @@
-import 'package:etherwallet/model/network_type.dart';
-import 'package:etherwallet/qrcode_reader_page.dart';
-import 'package:etherwallet/service/configuration_service.dart';
-import 'package:etherwallet/utils/route_utils.dart';
-import 'package:etherwallet/wallet_create_page.dart';
-import 'package:etherwallet/wallet_import_page.dart';
-import 'package:etherwallet/wallet_main_page.dart';
-import 'package:etherwallet/wallet_transfer_page.dart';
+import '../../model/network_type.dart';
+import '../../qrcode_reader_page.dart';
+import '../../service/configuration_service.dart';
+import '../../utils/route_utils.dart';
+import '../../wallet_create_page.dart';
+import '../../wallet_import_page.dart';
+import '../../wallet_main_page.dart';
+import '../../wallet_transfer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:provider/provider.dart';
@@ -19,15 +19,17 @@ Map<String, WidgetBuilder> getRoutes(context) {
   return {
     '/': (BuildContext context) {
       final configurationService = Provider.of<ConfigurationService>(context);
-      if (configurationService.didSetupWallet())
+      if (configurationService.didSetupWallet()) {
         return WalletProvider(
             // ignore: prefer_const_constructors
             builder: (context, store) => WalletMainPage('Your wallet'));
+      }
 
       return const IntroPage();
     },
     '/create': (BuildContext context) =>
         WalletSetupProvider(builder: (context, store) {
+          // ignore: body_might_complete_normally_nullable
           useEffect(() {
             store.generateMnemonic();
           }, []);
